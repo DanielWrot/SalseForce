@@ -1,0 +1,57 @@
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid black;
+}
+#1 table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid black;
+}
+ td,  th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+
+ th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #5D6975;
+  background-color:  #5D6975;
+  color: white;
+}
+
+h1 {
+  border-top: 1px solid  #5D6975;
+  border-bottom: 1px solid  #5D6975;
+  color: #5D6975;
+  font-size: 2.4em;
+  line-height: 1.4em;
+  font-weight: normal;
+  text-align: center;
+  margin: 0 0 20px 0;
+}
+
+#1 td, #1 th {
+  color: #5D6975;
+  font-weight: normal;
+  text-align: center;
+  margin: 0 0 20px 0;
+}
+
+
+#1 td, #1 th {
+  padding: 8px;
+}
+
+
+#1 th {
+  text-align: left;
+  background-color: #5D6975;
+  background-color:  #5D6975;
+  color: white;
+}
+
