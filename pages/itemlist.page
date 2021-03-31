@@ -1,0 +1,31 @@
+<apex:page controller="clone" lightningStylesheets="true">
+    <apex:form>
+        <apex:pageBlock title="List of Items">
+            <apex:pageMessages />
+            <apex:pageBlockButtons>
+                <apex:commandButton action="{!newSearch}" value="New Search" />
+            </apex:pageBlockButtons>
+            <apex:pageBlockTable var="item" value="{!deliveries}" >
+                <apex:column value="{!item.Name}" />
+                <apex:column value="{!item.Expense_Invoice__r.ID}" />
+                <apex:column value="{!item.Expense_Invoice__c}" />
+                <apex:column value="{!item.Expense_Type__c}" />
+                <apex:column value="{!item.Date__c}" />
+                <apex:column value="{!item.Total_Amount__c}" />
+            </apex:pageBlockTable>
+        </apex:pageBlock>
+    </apex:form>
+    <apex:form >
+    <apex:pageblock >
+        <apex:pageblockSection >
+            <apex:pageblockSectionItem >Enter the Expense Invoice Line Item </apex:pageblockSectionItem>
+            <apex:pageblockSectionItem ><apex:inputtext value="{!idOfRec}" /></apex:pageblockSectionItem> 
+            <apex:pageblockSectionItem >Enter the Expense Invoice ID  </apex:pageblockSectionItem>
+            <apex:pageblockSectionItem ><apex:inputtext value="{!idOfInv}" /></apex:pageblockSectionItem>               
+        </apex:pageblockSection>
+        <apex:pageblockButtons >
+            <apex:commandButton value="Clone" action="{!cloneButton}"/>
+        </apex:pageblockButtons>
+    </apex:pageblock>   
+</apex:form>
+</apex:page>

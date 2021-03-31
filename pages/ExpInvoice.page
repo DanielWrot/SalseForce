@@ -1,0 +1,79 @@
+<apex:page standardController="Expense_Invoice__c" renderAs="pdf">
+ 
+-<apex:stylesheet value="{!URLFOR($Resource.Styles)}"/>
+<h1>Expense Invoice</h1>
+ 
+<td>INVOICE: <b><apex:outputText value=" {!Expense_Invoice__c.Name}"/></b></td>
+<td>DATE: <b><apex:outputText value=" {!Expense_Invoice__c.Inovice_Date__c}"/></b></td>
+<td>Location: London</td>
+
+<div id="1">
+    <table >
+    <th> Mail to: </th> 
+    <th> Bill to: </th> 
+    <tr>
+        <td><apex:outputText value="{!Expense_Invoice__c.Account__c}"/></td>
+        <td><apex:outputText value="{!Expense_Invoice__c.Account__c}"/></td>
+    </tr>
+    <tr>
+        <td><apex:outputText value="{!Expense_Invoice__c.Billing_Street__c}"/></td>
+        <td><apex:outputText value="{!Expense_Invoice__c.Billing_Street__c}"/></td>
+    </tr>
+    <tr>
+        <td><apex:outputText value="{!Expense_Invoice__c.Billing_City__c}"/></td>
+        <td><apex:outputText value="{!Expense_Invoice__c.Billing_City__c}"/></td>
+    </tr>
+    <tr>
+        <td><apex:outputText value="{!Expense_Invoice__c.Billing_State_Province__c}"/></td>
+        <td><apex:outputText value="{!Expense_Invoice__c.Billing_State_Province__c}"/></td>
+    </tr>
+    <tr>
+        <td><apex:outputText value="{!Expense_Invoice__c.Billing_Zip_Postal_Code__c}"/></td>
+        <td><apex:outputText value="{!Expense_Invoice__c.Billing_Zip_Postal_Code__c}"/></td>
+    </tr>
+    <tr>
+        <td><apex:outputText value="{!Expense_Invoice__c.Billing_Country__c}"/></td>
+        <td><apex:outputText value="{!Expense_Invoice__c.Billing_Country__c}"/></td>
+    </tr>
+    
+    </table>
+</div>
+ <div>
+     <table >
+         <tr>
+             <th >Date</th>
+             <th>Expense Invoice Line Item Number</th>
+             <th>Expense Type</th>
+             <th>Amount</th>
+             <th>Line Total</th>
+        </tr>
+
+        <apex:repeat var="LineItems" value="{!Expense_Invoice__c.Expense_Invoice_Line_Item__r}">
+            <tr>
+                <td><apex:outputText value="{0, date,dd'/'MM'/'yyyy}"><apex:param value="{!LineItems.Date__c}"/></apex:outputText></td>
+                <td>{!LineItems.Name}</td>
+                <td>{!LineItems.Expense_Type__c}</td>
+                <td><apex:outputText value="{0, number, '£'0.00}"><apex:param value="{!LineItems.Amount__c}"/></apex:outputText></td>
+                <td><apex:outputText value="{0, number, '£'0.00}"><apex:param value="{!LineItems.Total_Amount__c}"/></apex:outputText></td>
+
+
+            </tr>
+        </apex:repeat>
+
+          <tr>
+            <td colspan="4">SUBTOTAL</td>
+            <th><apex:outputText value="{0, number, '£'0.00}"><apex:param value="{!Expense_Invoice__c.Sub_Total__c}"/></apex:outputText></th>
+          </tr>
+          <tr>
+            <td colspan="4">VAT 20%</td>
+            <th ><apex:outputText value="{0, number, '£'0.00}"><apex:param value="{!Expense_Invoice__c.VAT__c}"/></apex:outputText></th>
+          </tr>
+          <tr>
+            <td colspan="4" class="grand total">GRAND TOTAL</td>
+            <th><apex:outputText value="{0, number, '£'0.00}"><apex:param value="{!Expense_Invoice__c.Invoice_Total__c}"/></apex:outputText></th>
+        </tr>
+
+
+     </table>
+ </div>
+ </apex:page>
